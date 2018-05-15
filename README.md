@@ -61,7 +61,7 @@ brisanje dijelova koji nam nisu potrebni
 $ cd ~/catkin_ws/src/turtlebot3
 $ sudo rm -r turtlebot3_description/ turtlebot3_teleop/ turtlebot3_navigation/ turtlebot3_slam/ turtlebot3_example/
 ```
-instalacija pakketa i build
+instalacija paketa i build
 ```
 $ sudo apt-get install ros-kinetic-rosserial-python ros-kinetic-tf
 $ cd ~/catkin_ws && catkin_make
@@ -80,6 +80,11 @@ export ROS_HOSTNAME=TARGET_IP
 ```
 $ source ~/.bashrc
 ```
+* Omogućavanje SSH
+```
+Preferences->Raspberry Pi Configuration->Interfaces->SSH Enabled
+```
+
 ## 4. OpenCR setup
 
 * postavljanje na RaspberryPi uređaju
@@ -109,7 +114,7 @@ $ source ~/.bashrc
 ```
 pokretanje Arduina
 ```
-arduino
+$ arduino
 ```
 * postavke za Arduino
 ```
@@ -125,7 +130,41 @@ File->Preferences->Additional Boards Manager URLs: https://raw.githubusercontent
  Tools → Port → /dev/ttyACM0
 ```
 
+## Programiranje PID controlera na OpenCR pločicu
 
+* preuzimanje Filters knjižnice i dodavanje u arduino IDE -> [Link](https://github.com/JonHub/Filters)
+* pokretanje arduino projekta
+```
+ Files->Open->Segway_project
+```
+* dodatno podešavanje PID parametara i početnog kuta otklona
+* testiranje održavanja ravnoteže
+
+## Pokretanje ROS-a
+
+* postavljanje na RaspberryPi uređaju
+```
+ $ gedit ~/.bashrc
+```
+dodavanje na kraj datoteke: 
+```
+ EXPORT TURTLEBOT3_MODEL=segway
+```
+```
+ $ source ~/.bashrc
+```
+* pokretanje na udaljenom računalu
+```
+ $ roscore
+```
+spajanje na turtlebot
+
+```
+ $ ssh turtlebot3@ip
+ $ roslaunch turtlebot3_bringup turtlebot3_robot.launch
+```
+nakon uspješnog podizanja i spajanja ROS-a možemo koristiti funkcionalnosti ROS-a poput vizualizacije podataka
+u RVIZ-u ili objavljivanja i praćenja podataka s određenih tema
 
 
 
