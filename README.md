@@ -130,7 +130,7 @@ File->Preferences->Additional Boards Manager URLs: https://raw.githubusercontent
  Tools → Port → /dev/ttyACM0
 ```
 
-## Programiranje PID controlera na OpenCR pločicu
+## Programiranje PID kontrolera na OpenCR pločicu
 
 * preuzimanje Filters knjižnice i dodavanje u arduino IDE -> [Link](https://github.com/JonHub/Filters)
 * pokretanje arduino projekta
