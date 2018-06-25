@@ -1,6 +1,6 @@
 # Turtlebot 3 - Segway
 
-Kratki uvod
+Projekt iz mobilne robotike, izrada turtlebot segway robota, kontrola ravnoteže pomoću PID kontrolera.
 
 ## 1. Slaganje
 
