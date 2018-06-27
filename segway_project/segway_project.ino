@@ -1,21 +1,3 @@
-/*******************************************************************************
-* Copyright 2016 ROBOTIS CO., LTD.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*******************************************************************************/
-
-/* Authors: Yoonseok Pyo, Leon Jung, Darby Lim, HanCheol Cho */
-
 #include "turtlebot3_segway.h"
 
 /*******************************************************************************
@@ -119,64 +101,6 @@ void loop()
   
   
   }
-
-#ifdef DEBUG
-  if (Serial.available())
-  {
-    keyboard = Serial.read();
-    if (keyboard == 'u')
-    {
-      p_gain = p_gain + 1.0;
-    }
-    else if (keyboard == 'j')
-    {
-      p_gain = p_gain - 1.0;
-    }
-    else if (keyboard == 'o')
-    {
-      d_gain = d_gain + 0.1;
-    }
-    else if (keyboard == 'l')
-    {
-      d_gain = d_gain - 0.1;
-    }
-    else if (keyboard == 'i')
-    {
-      i_gain = i_gain + 0.1;
-    }
-    else if (keyboard == 'k')
-    {
-      i_gain = i_gain - 0.1;
-    }
-    else if (keyboard == 'a')
-    {
-      angle_offset = angle_offset + 0.01;
-    }
-    else if (keyboard == 's')
-    {
-      angle_offset = angle_offset - 0.01;
-    }
-  }
-  
-/*
-  Serial.print(" P : ");
-  Serial.print(p_gain);
-  Serial.print(" I : ");
-  Serial.print(i_gain);
-  Serial.print(" D : ");
-  Serial.print(d_gain);
-  Serial.print(" offset : ");
-  Serial.print(angle_offset);
-  */
-  Serial.print(" output : ");
-  Serial.print(control_output);
-  
-  Serial.print(" angle : ");
-  Serial.println(angle[0]);
-
-   nh.spinOnce();
-#endif
-}
 
 /*******************************************************************************
 * Get angle from IMU
